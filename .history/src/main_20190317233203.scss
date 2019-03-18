@@ -1,0 +1,60 @@
+.container {
+  max-width: 30%;
+}
+/**
+*Those Vars
+*/
+$page-bg: #282f32;
+$light-blue: #3599ff;
+$bright-blue: #68b3ff;
+$light-gray: #999;
+//$curve: cubic-bezier(0, 0, 0.52, 1.11);
+$curve: linear;
+
+.text-input {
+  overflow: hidden;
+  margin-bottom: 0.875em;
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 1em 0 12px;
+    padding-left: 0;
+    background: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 400;
+    border: none;
+    border-bottom: 1px solid $light-gray;
+
+    /*Some sibling magic happens */
+    &:focus + .separator {
+      transform: scaleX(1) translateY(-2px);
+      opacity: 1;
+    }
+  }
+
+  input[type="submit"] {
+    color: white;
+    background: $light-blue;
+    padding: 1em 1.4em;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+  }
+}
+
+.separator {
+  height: 3px;
+  width: 100%;
+  background: $bright-blue;
+  display: block;
+  transform: scaleX(0) translateY(-2px);
+  transform-origin: 50%;
+  opacity: 0;
+  transition: all 0.15s $curve;
+}
+* :focus {
+  outline-color: transparent;
+  outline-style: none;
+}
