@@ -69,7 +69,7 @@ export const SignOut = () => {
   };
 };
 
-export const NewPark = data => {
+export const Request = data => {
   return async dispatch => {
     try {
       const res = await Axios.post(

@@ -46,7 +46,7 @@ background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, F
                 <>
                   {!this.props.saveState ? (
                     <li className="nav-item">
-                      <Link className="nav-link btn btn-primary" to="/NewPark">
+                      <Link className="nav-link btn btn-primary" to="/Request">
                         New Park
                       </Link>
                     </li>

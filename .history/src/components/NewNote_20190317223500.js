@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import CustomInput from "./CustomInput";
 import CustomTextarea from "./CustomTextarea";
 import * as actions from "../actions";
-class NewPark extends Component {
+class Request extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -22,7 +22,7 @@ class NewPark extends Component {
 
   async onSubmit(formData) {
     formData.date = new Date();
-    await this.props.NewPark(formData);
+    await this.props.Request(formData);
     if (!this.props.errorMessage) {
       this.updateNeeded();
       this.props.history.push("/");
@@ -86,5 +86,5 @@ export default compose(
     MapStateToProps,
     actions
   ),
-  reduxForm({ form: "NewPark" })
-)(NewPark);
+  reduxForm({ form: "Request" })
+)(Request);

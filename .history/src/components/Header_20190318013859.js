@@ -39,7 +39,7 @@ class Header extends Component {
               {this.props.isAuth ? (
                 <>
                   {!this.props.saveState ? (
-                        <Link className="nav-link btn btn-primary" to="/NewPark">
+                        <Link className="nav-link btn btn-primary" to="/Request">
                         New Park
                       </Link>
                     </li>
@@ -78,7 +78,7 @@ class Header extends Component {
                 <>
                   {!this.props.saveState ? (
                     <li className="nav-item">
-                      <Link className="nav-link btn btn-primary" to="/NewPark">
+                      <Link className="nav-link btn btn-primary" to="/Request">
                         New Park
                       </Link>
                     </li>

@@ -14,7 +14,7 @@ import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 import reducers from "./reducers/index";
 import authGuard from "./components/HOCs/authGuard";
-import NewPark from "./components/NewPark";
+import Request from "./components/Request";
 
 const jwtToken = localStorage.getItem("JWT_TOKEN");
 Axios.defaults.headers.common["Authorization"] = jwtToken;
@@ -35,7 +35,7 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Route exact path="/" component={authGuard(ParkApp)} />
-        <Route exact path="/NewPark" component={authGuard(NewPark)} />
+        <Route exact path="/Request" component={authGuard(Request)} />
         <Route
           exact
           path="/park/:title::date"
