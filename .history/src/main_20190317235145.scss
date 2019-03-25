@@ -31,7 +31,6 @@
 .field input[type="time"],
 .field input[type="url"],
 .field input[type="password"],
-.field textarea,
 .field select {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -46,10 +45,6 @@
   margin-bottom: 10px;
   font: 16px Arial, Helvetica, sans-serif;
   height: 45px;
-}
-.field textarea {
-  resize: none;
-  overflow: hidden;
 }
 .field input[type="button"],
 .field input[type="submit"] {
