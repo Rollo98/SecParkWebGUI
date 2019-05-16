@@ -3,7 +3,6 @@ import {
   AUTH_SIGN_IN,
   AUTH_SIGN_OUT,
   AUTH_ERROR,
-  PARK_SAVE,
   PARK_ERROR,
   PARK_EDIT
 } from "./types";
@@ -43,32 +42,6 @@ export const SignOut = () => {
   };
 };
 
-export const Request = data => {
-  return async dispatch => {
-    try {
-      const res = await Axios.post(
-        "http://localhost:5000/parks/add_park",
-        data
-      );
-      dispatch({
-        type: PARK_SAVE,
-        payload: res.data.token
-      });
-    } catch (error) {
-      if (error.response.status === 400) {
-        dispatch({
-          type: PARK_ERROR,
-          payload: error.response.data.details[0].message
-        });
-      } else {
-        dispatch({
-          type: PARK_ERROR,
-          payload: error.response.data
-        });
-      }
-    }
-  };
-};
 export const EditPark = data => {
   return async dispatch => {
     try {
