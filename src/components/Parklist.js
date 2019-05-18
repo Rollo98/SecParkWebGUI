@@ -13,7 +13,7 @@ export default class Parklist extends Component {
   componentDidMount() {
     const jwtToken = localStorage.getItem("JWT_TOKEN");
     Axios.defaults.headers.common["Authorization"] = jwtToken;
-    Axios.get("http://localhost:5000/get_numberplates").then(Response => {
+    Axios.get("http://40.127.170.50:5000/get_numberplates").then(Response => {
       this.setState({ parks: Response.data.response });
     });
   }

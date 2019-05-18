@@ -10,7 +10,7 @@ import {
 export const SignIn = data => {
   return async dispatch => {
     try {
-      const res = await Axios.post("http://localhost:5001/signin", data);
+      const res = await Axios.post("http://40.127.170.50:5001/signin", data);
       dispatch({
         type: AUTH_SIGN_IN,
         payload: res.data.token
@@ -46,7 +46,7 @@ export const EditPark = data => {
   return async dispatch => {
     try {
       const res = await Axios.post(
-        "http://localhost:5000/parks/edit_park",
+        "http://40.127.170.50:5000/parks/edit_park",
         data
       );
       dispatch({

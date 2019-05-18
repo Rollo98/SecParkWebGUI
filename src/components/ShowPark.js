@@ -8,7 +8,7 @@ export default class ShowPark extends Component {
     this.state = {};
     this.state.park = {};
     this.state.sock = {
-      socket: io.connect("http://localhost:5000")
+      socket: io.connect("http://40.127.170.50:5000")
     };
     this.state.sock.socket.on(localStorage.getItem("JWT_TOKEN"), () =>
       this.componentDidMount()
@@ -17,7 +17,7 @@ export default class ShowPark extends Component {
 
   async componentWillMount() {
     let data = { title: this.props.title, date: this.props.date };
-    await Axios.post("http://localhost:5000/parks/get_park", data).then(
+    await Axios.post("http://40.127.170.50:5000/parks/get_park", data).then(
       Response => this.setState({ park: Response.data.parkFound[0] })
     );
   }
