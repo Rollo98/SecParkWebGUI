@@ -1,12 +1,8 @@
 # SecPark Web GUI
 
-One Paragraph of project description goes here
-
-## Getting Started
-
 Graphic user interface for SecPark project.
 
-### Prerequisites
+## Prerequisites
 
 What things you need to install the software and how to install them
 
@@ -14,7 +10,7 @@ What things you need to install the software and how to install them
 Node >= 10
 ```
 
-### Installing
+## Installing
 
 To run the application follow the command
 
