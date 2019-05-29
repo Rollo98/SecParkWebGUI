@@ -4,7 +4,7 @@ Graphic user interface for SecPark project.
 
 ## Prerequisites
 
-What things you need to install the software and how to install them
+What do you need to install before you start the project
 
 ```
 Node >= 10
