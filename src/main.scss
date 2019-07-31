@@ -163,6 +163,18 @@ $width: 100%;
   }
 }
 
+.dashboard {
+  .plates {
+    color: rgb(56, 56, 56);
+    text-decoration: none;
+    border: 1px solid #e3e3e3;
+    border-radius: 10px;
+  }
+  .plates:hover {
+    background-color: #007bff25;
+  }
+}
+
 // pure css for select menu
 .select {
   margin-bottom: 30px;

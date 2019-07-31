@@ -13,7 +13,6 @@ class SignIn extends Component {
   }
   async onSubmit(formData) {
     await this.props.SignIn(formData);
-    console.log(formData);
     if (!this.props.errorMessage) {
       this.props.history.push("/");
     }
@@ -26,10 +25,10 @@ class SignIn extends Component {
           <form className="form-login" onSubmit={handleSubmit(this.onSubmit)}>
             <fieldset>
               <Field
-                name="email"
+                name="userName"
                 type="text"
-                id="email"
-                label="Enter your email"
+                id="userName"
+                label="Enter username"
                 placeholder="example@example.com"
                 component={CustomInput}
               />

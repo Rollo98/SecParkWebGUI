@@ -32,11 +32,6 @@ class Header extends Component {
               ) : null}
               {this.props.isAuth ? (
                 <>
-                  {!this.props.saveState ? (
-                    <Link className="nav-link text-white" to="/Request">
-                      Request Park
-                    </Link>
-                  ) : null}
                   <Link
                     className="nav-link text-white"
                     to="/"

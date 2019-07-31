@@ -1,42 +1,66 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-// import Axios from "axios";
-import io from "socket.io-client";
+import Axios from "axios";
 
 export default class Parklist extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.state.parks = {};
-    this.state.sock = {
-      socket: io.connect("http://localhost:5000")
+    this.state = {
+      search: "",
+      parks: []
     };
-    this.state.sock.socket.on(localStorage.getItem("JWT_TOKEN"), () =>
-      this.componentDidMount()
-    );
   }
 
-  // componentDidMount() {
-  //   const jwtToken = localStorage.getItem("JWT_TOKEN");
-  //   Axios.defaults.headers.common["Authorization"] = jwtToken;
-  //   Axios.post("http://localhost:5000/parks/get_parks").then(Response =>
-  //     this.setState({ parks: Response.data.parks })
-  //   );
-  // }
+  componentDidMount() {
+    const jwtToken = localStorage.getItem("JWT_TOKEN");
+    Axios.defaults.headers.common["Authorization"] = jwtToken;
+    Axios.get("http://40.127.170.50:5000/get_numberplates").then(Response => {
+      this.setState({ parks: Response.data.response });
+    });
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   renderParks() {
-    const parks = Object.values(this.state.parks);
-    var x = parks.map(n => (
-      <div key={n.date}>
-        <h2>
-          <Link to={`/park/${n.title}:${n.date}`}>{n.title}</Link>
-        </h2>
-      </div>
-    ));
+    const parks = Object.values(this.state.parks).filter(
+      park => park.plate.indexOf(this.state.search) !== -1
+    );
+
+    var x = parks.map(n => {
+      let expire = null;
+      if (n.expiresAt !== null && n.expiresAt !== undefined) {
+        expire = new Date(n.expiresAt);
+      }
+      return (
+        <div className="plates park m-2 p-2 pt-3" key={n._id}>
+          <h2>{n.plate}</h2>
+          {expire !== null ? (
+            <p>
+              Expires at {expire.toLocaleString("en-GB", { hour12: false })}
+            </p>
+          ) : null}
+        </div>
+      );
+    });
     return x;
   }
 
   render() {
-    return <div>{this.renderParks()}</div>;
+    return (
+      <div className="dashboard">
+        <input
+          autoComplete="off"
+          name="search"
+          type="text"
+          value={this.state.search}
+          className="form-control searchBar"
+          placeholder="Search..."
+          aria-label="Search"
+          onChange={this.handleChange}
+        />
+        {this.renderParks()}
+      </div>
+    );
   }
 }

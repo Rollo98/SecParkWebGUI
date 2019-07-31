@@ -13,7 +13,6 @@ import ShowPark from "./components/ShowPark";
 import SignIn from "./components/SignIn";
 import reducers from "./reducers/index";
 import authGuard from "./components/HOCs/authGuard";
-import Request from "./components/Request";
 
 import "./main.scss";
 
@@ -27,7 +26,6 @@ ReactDOM.render(
       {
         auth: {
           token: jwtToken,
-          //to switch to signed in or not
           isAuthenticated: jwtToken ? true : false
         }
       },
@@ -37,7 +35,6 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Route exact path="/" component={authGuard(ParksApp)} />
-        <Route exact path="/Request" component={authGuard(Request)} />
         <Route
           exact
           path="/park/:title::date"
